@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "349004421158",
+    "project_id": "paco-86331",
+    "storage_bucket": "paco-86331.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:349004421158:android:ff9779f79d23953dfaeee7",
+        "android_client_info": {
+          "package_name": "com.example.paco_money"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFyi-yWQLLFkIWZ9zR7zDPzrv3UTi8wZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
