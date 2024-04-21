@@ -18,7 +18,7 @@ class _LoadingState extends State<Loading> {
     _loadData(); // เรียกเมธอด _loadData() เมื่อหน้า Loading ถูกสร้างขึ้น
   }
 
-  // เมธอดเพื่อโหลดข้อมูล
+  // โหลดข้อมูล
   void _loadData() {
     // ใช้ Future.delayed() เพื่อทำให้มีการรอเป็นเวลา 3 วินาที
     Future.delayed(Duration(seconds: 3), () {
