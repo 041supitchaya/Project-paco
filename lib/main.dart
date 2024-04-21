@@ -5,7 +5,7 @@ import 'package:paco_money/screen/home.dart';
 import 'package:paco_money/page/tool_bar.dart';
 import 'package:paco_money/page/home_page.dart';
 import 'package:paco_money/history/history1.dart';
-
+import 'package:paco_money/Loading.dart';
 // void main() {
 //   runApp(const MyApp());
 // }
@@ -29,7 +29,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(248, 140, 63, 1)),
         useMaterial3: true,
       ),
-      home: homepage()
+      home: Loading()
+      // home: homepage()
       // home: HomeScreen() // class HomeScreen เป็นหน้าเเรกในการ run
     );
   }
