@@ -1,6 +1,9 @@
-วิธี setup ให้พิมพ์ flutter pub get เเล้วรัน code ใน file main.dart ที่อยู่ใน folder ชื่อ lib
+วิธี setup ให้พิมพ์ใน teminal ว่า flutter pub get เเล้วรัน code ใน file main.dart ที่อยู่ใน folder ชื่อ lib
 
 
+เพิ่มเติมวิธีเปิดใน มือถือ
+ให้รัน flutter build apk ใน teminal เเล้วเข้า ไปที่ path build/app/outputs/flutter-apk/app-release.apk
+โหลด file app-release.apk มาเปิดในมือถือได้เลย (ได้เฉพาะ android)
 
 
 
