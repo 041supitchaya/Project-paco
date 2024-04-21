@@ -15,14 +15,9 @@ class _LoadingState extends State<Loading> {
   @override
   void initState() {
     super.initState();
-    _loadData(); // เรียกเมธอด _loadData() เมื่อหน้า Loading ถูกสร้างขึ้น
-  }
-
-  // โหลดข้อมูล
-  void _loadData() {
-    // ใช้ Future.delayed() เพื่อทำให้มีการรอเป็นเวลา 3 วินาที
-    Future.delayed(Duration(seconds: 3), () {
-      // เมื่อโหลดเสร็จสมบูรณ์ ให้เปลี่ยนหน้าไปยัง HomeScreen
+    // เริ่มการนับถอยหลัง 2 วินาที
+    Timer(Duration(seconds: 2), () {
+      // เมื่อเวลาหมดแล้ว ให้เปลี่ยนหน้าไปยัง HomeScreen
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => HomeScreen()),

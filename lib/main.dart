@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(248, 140, 63, 1)),
         useMaterial3: true,
       ),
-      home: Loading()
+      home: Loading(title: 'Loading...')
       // home: homepage()
       // home: HomeScreen() // class HomeScreen เป็นหน้าเเรกในการ run
     );
