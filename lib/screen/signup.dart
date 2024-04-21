@@ -70,26 +70,14 @@ class _SignupScreenState extends State<SignupScreen> {
                   ElevatedButton(
                     child: const Text("SIGN UP", style: TextStyle(fontSize: 20)),
                     onPressed: () async {
-                      if (formKey.currentState!.validate()) {
-                        formKey.currentState!.save();
-
-                        try {
-                          UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                            email: email,
-                            password: password,
-                          );
-                          // เชื่อมหน้า Signup success เชื่อมไปหน้า home login (เชื่อมเเบบ Navigator)
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(builder: (context) => HomeScreen()),
-                          );
-                        } catch (e) {
-                          // Signup failed
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Signup failed: $e')));
-                        }
-                      }
+                      // เชื่อมกลับไปยังหน้าหลัก (HomeScreen) โดยไม่ต้องใส่อีเมลและรหัสผ่านให้ถูกต้อง
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
                     },
                   ),
+
                 ],
               ),
             ),

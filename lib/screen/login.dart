@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paco_money/model/profile.dart';
-
+import 'package:paco_money/page/home_page.dart';
 // import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 
@@ -70,18 +70,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 30),
                   ElevatedButton(
-                    child: const Text("LOGIN", style: TextStyle(fontSize: 20)),
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        formKey.currentState!.save();
-
-                        // Handle signup logic here
-                        //  - Call a backend API for user registration
-                        //  - Show a success/error message
-                        //  - Navigate to the next screen
-                      }
+                    child: const Text("Login", style: TextStyle(fontSize: 20)),
+                    onPressed: () async {
+                      // เชื่อมกลับไปยังหน้าหลัก (HomePage) โดยไม่ต้องใส่อีเมลและรหัสผ่านให้ถูกต้อง
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => homepage()),
+                      );
                     },
                   ),
+
                 ],
               ),
             ),
