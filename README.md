@@ -1,4 +1,4 @@
-วิธี setup ให้รัน code ใน file main.dart ที่อยู่ใน folder ชื่อ lib
+วิธี setup ให้พิมพ์ flutter pub get เเล้วรัน code ใน file main.dart ที่อยู่ใน folder ชื่อ lib
 
 
 
