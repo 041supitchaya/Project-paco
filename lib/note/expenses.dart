@@ -23,14 +23,15 @@ class DatePickerPage extends StatefulWidget {
 
 class _DatePickerPageState extends State<DatePickerPage> {
   DateTime selectedDate = DateTime.now();
-  late File _profileImage; // Declare _profileImage variable
+  late File _profileImage; // ประกาศตัวแปร _profileImage
 
   @override
   void initState() {
     super.initState();
-    _profileImage = File(''); // Initialize _profileImage with an empty file
+    _profileImage = File(''); // เริ่มต้น _profileImage ด้วยไฟล์เปล่า
   }
 
+  // เลือกวันที่ในปฎิทิน
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -46,7 +47,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
 
   // รูปภาพของกล้อง
   Future<void> _pickImage(ImageSource source) async {
-    final picker = ImagePicker();
+    final picker = ImagePicker(); //สร้างอ็อบเจ็กต์ของคลาส ImagePicker เพื่อใช้ในการเลือกรูปภาพ
     final pickedFile = await picker.getImage(source: source);
 
     if (pickedFile != null) {
