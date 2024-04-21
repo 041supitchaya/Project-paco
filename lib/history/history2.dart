@@ -90,12 +90,12 @@ class _history2State extends State<history2> {
                   itemCount: 1,
                   itemBuilder: (context, index) {
                     return ListTile(
-                      leading: Image.asset('image/oil.png'),
-                      title: Text('Oil'),
-                      subtitle: Text('2024-03-15'),
-                      trailing: Text('\- ฿1500.00',
+                      leading: Image.asset('image/salary.png'),
+                      title: Text('salary'),
+                      subtitle: Text('2024-02-1'),
+                      trailing: Text('\+ ฿19000.00',
                       style: TextStyle(
-                        color: Colors.red,
+                        color: Colors.green,
                         ),
                       ),
                     );
@@ -104,7 +104,7 @@ class _history2State extends State<history2> {
               ),
             ),
 
-              // รูป filling_station.jpg
+              // รูป salary_history.png
               Positioned(
                 top: 124,
                 left: (MediaQuery.of(context).size.width - 280) / 2, // Centered horizontally
@@ -113,7 +113,7 @@ class _history2State extends State<history2> {
                   width: 300,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('image/filling station.jpg'), // เปลี่ยนรูปภาพเป็น filling_station.jpg
+                      image: AssetImage('image/salary_history.png'), // เปลี่ยนรูปภาพเป็น filling_station.jpg
                       fit: BoxFit.cover, // ให้รูปภาพขยายเต็มพื้นที่
                     ),
                     borderRadius: BorderRadius.circular(30),
@@ -121,7 +121,7 @@ class _history2State extends State<history2> {
                 ),
               ),
 
-              // ข้อความ "เติมน้ำมันตอนไปเที่ยว"
+              // ข้อความ 
               Positioned(
                 top: 350,
                 left: (MediaQuery.of(context).size.width - 331) / 2, // Centered horizontally
@@ -134,7 +134,7 @@ class _history2State extends State<history2> {
                   ),
                   child: Center(
                     child: Text(
-                      'เติมน้ำมันตอนไปเที่ยว',
+                      'เงินเดือนของเดือนกุมภาพันธ์',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -144,26 +144,6 @@ class _history2State extends State<history2> {
                   ),
                 ),
               ),
-
-              // // สถานะหลังลบ
-              // AnimatedOpacity(
-              //   duration: Duration(milliseconds: 300),
-              //   opacity: dataDeleted ? 1 : 0,
-              //   child: Container(
-              //     height: MediaQuery.of(context).size.height,
-              //     width: MediaQuery.of(context).size.width,
-              //     color: Colors.black.withOpacity(0.6),
-              //     child: Center(
-              //       child: Text(
-              //         'ลบแล้ว',
-              //         style: TextStyle(
-              //           fontSize: 24,
-              //           color: Colors.white,
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              // ),
 
             // toolbar ข้างล่าง
             Align(

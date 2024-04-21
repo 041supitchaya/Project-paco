@@ -5,10 +5,8 @@ import 'package:paco_money/page/analytics.dart';
 import 'package:paco_money/screen/login.dart';
 import 'package:paco_money/history/history1.dart';
 import 'package:paco_money/history/history2.dart';
+import 'package:paco_money/note/expenses.dart';
 
-// void main() {
-//   runApp(MyApp());
-// }
 
 class homepage extends StatelessWidget {
   @override
@@ -167,31 +165,40 @@ class homepage extends StatelessWidget {
                 width: 64, // ความกว้างของสี่เหลี่ยม
                 child: Stack(
                   children: [
-                    // สี่เหลี่ยมสีเหลือง
+                    // เพิ่มช่อง pen 
                     Positioned.fill(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 251, 204, 61), // สี FCDA78
-                          borderRadius: BorderRadius.circular(20), // รัศมีความโค้งทุกด้าน 30
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.2), // เงาสีดำ 20%
-                              spreadRadius: 1,
-                              blurRadius: 5,
-                              offset: Offset(0, 3), // ตำแหน่งเงา
+                      // pen เชื่อมไปหน้า expenses
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => expenses()),
+                          );
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 251, 204, 61), // สี FCDA78
+                            borderRadius: BorderRadius.circular(20), // รัศมีความโค้งทุกด้าน 30
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2), // เงาสีดำ 20%
+                                spreadRadius: 1,
+                                blurRadius: 5,
+                                offset: Offset(0, 3), // ตำแหน่งเงา
+                              ),
+                            ],
+                          ),
+                          // รูป pen อยู่ตรงกลางของสี่เหลี่ยม
+                          child: Positioned(
+                            top: 17, // ระยะตำแหน่งจากด้านบน
+                            left: 17, // ระยะตำแหน่งจากด้านซ้าย
+                            child: Image.asset(
+                              'image/pen.png', // เปลี่ยนเป็นพาทของรูป pen ของคุณ
+                              width: 30,
+                              height: 30,
                             ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
-                    // รูป pen อยู่ตรงกลางของสี่เหลี่ยม
-                    Positioned(
-                      top: 17, // ระยะตำแหน่งจากด้านบน
-                      left: 17, // ระยะตำแหน่งจากด้านซ้าย
-                      child: Image.asset(
-                        'image/pen.png', // เปลี่ยนเป็นพาทของรูป pen ของคุณ
-                        width: 36,
-                        height: 36,
                       ),
                     ),
                   ],

@@ -145,26 +145,6 @@ class _history1State extends State<history1> {
                 ),
               ),
 
-              // // สถานะหลังลบ
-              // AnimatedOpacity(
-              //   duration: Duration(milliseconds: 300),
-              //   opacity: dataDeleted ? 1 : 0,
-              //   child: Container(
-              //     height: MediaQuery.of(context).size.height,
-              //     width: MediaQuery.of(context).size.width,
-              //     color: Colors.black.withOpacity(0.6),
-              //     child: Center(
-              //       child: Text(
-              //         'ลบแล้ว',
-              //         style: TextStyle(
-              //           fontSize: 24,
-              //           color: Colors.white,
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              // ),
-
             // toolbar ข้างล่าง
             Align(
               alignment: Alignment.bottomCenter,
