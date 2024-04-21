@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:paco_money/page/home_page.dart';
 import 'package:paco_money/page/wallet.dart';
 import 'package:paco_money/page/analytics.dart';
-import 'package:paco_money/screen/login.dart';
+import 'package:paco_money/screen/home.dart';
+import 'package:paco_money/page/tool_bar.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -22,10 +23,10 @@ class _HomeState extends State<Home> {
       body: PageView(
         controller: _pageController,
         children: [
-          homepage(), 
+          homepage(),
           WalletPage(),
-          analytics(), 
-          LoginScreen(), 
+          analytics(),
+          HomeScreen(),
         ],
       ),
       bottomNavigationBar: Align(
@@ -37,10 +38,18 @@ class _HomeState extends State<Home> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _buildToolbarButton('image/book.png', 'Home', 0),
-              _buildToolbarButton('image/wallet.png', 'Wallet', 1),
-              _buildToolbarButton('image/analytics.png', 'Analytics', 2),
-              _buildToolbarButton('image/logout.png', 'Logout', 3),
+              _buildToolbarButton('image/book.png', 'Home', 0, () {
+                _navigateToPage(context, homepage());
+              }),
+              _buildToolbarButton('image/wallet.png', 'Wallet', 1, () {
+                _navigateToPage(context, WalletPage());
+              }),
+              _buildToolbarButton('image/analytics.png', 'Analytics', 2, () {
+                _navigateToPage(context, analytics());
+              }),
+              _buildToolbarButton('image/logout.png', 'Logout', 3, () {
+                _navigateToPage(context, HomeScreen());
+              }),
             ],
           ),
         ),
@@ -48,15 +57,10 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget _buildToolbarButton(String iconPath, String text, int index) {
+  Widget _buildToolbarButton(
+      String iconPath, String text, int index, VoidCallback onTap) {
     return GestureDetector(
-      onTap: () {
-        _pageController.animateToPage(
-          index,
-          duration: Duration(milliseconds: 500),
-          curve: Curves.ease,
-        );
-      },
+      onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
@@ -79,5 +83,11 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-}
 
+  void _navigateToPage(BuildContext context, Widget page) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => page),
+    );
+  }
+}

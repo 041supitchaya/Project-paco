@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 // import 'package:firebase_core/firebase_core.dart';
 // import path หน้าที่ต้องการเชื่อม ของ tool bar
 import 'package:paco_money/page/home_page.dart';
-import 'package:paco_money/page/wallet.dart';
-import 'package:paco_money/page/analytics.dart';
-import 'package:paco_money/screen/login.dart';
+// import 'package:paco_money/page/wallet.dart';
+// import 'package:paco_money/page/analytics.dart';
+// import 'package:paco_money/screen/login.dart';
 import 'package:paco_money/page/tool_bar.dart';
 
 class history1 extends StatefulWidget {
