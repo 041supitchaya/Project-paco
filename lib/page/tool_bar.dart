@@ -6,32 +6,34 @@ import 'package:paco_money/page/analytics.dart';
 import 'package:paco_money/screen/home.dart';
 import 'package:paco_money/page/tool_bar.dart';
 
-class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+class ToolBar extends StatefulWidget {
+  ToolBar({Key? key}) : super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  State<ToolBar> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<ToolBar> {
   final PageController _pageController = PageController();
   int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        children: [
-          homepage(),
-          WalletPage(),
-          analytics(),
-          HomeScreen(),
-        ],
-      ),
-      bottomNavigationBar: Align(
-        alignment: Alignment.bottomCenter,
-        child: Container(
+    return 
+    // Scaffold(
+      // // body: PageView(
+      // //   controller: _pageController,
+      // //   children: [
+      // //     homepage(),
+      // //     WalletPage(),
+      // //     analytics(),
+      // //     HomeScreen(),
+      // //   ],
+      // // ),
+      // bottomNavigationBar: Align(
+      //   alignment: Alignment.bottomCenter,
+        // child:
+        Container(
           height: 66,
           width: MediaQuery.of(context).size.width,
           color: Color(0xFFFFF5C0),
@@ -52,9 +54,9 @@ class _HomeState extends State<Home> {
               }),
             ],
           ),
-        ),
-      ),
-    );
+        );
+      // ),
+    // );
   }
 
   Widget _buildToolbarButton(

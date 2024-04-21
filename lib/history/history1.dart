@@ -28,6 +28,7 @@ class _history1State extends State<history1> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        bottomNavigationBar:ToolBar() , // เรียกใช้ function หน้า ToolBar
         backgroundColor: Color(0xFFF5A359), // กำหนดพื้นหลังของทั้งหน้าจอเป็นสี F5A359
         appBar: AppBar(
           backgroundColor: Colors.transparent, // กำหนดสีพื้นหลังของแอปบาร์เป็นสีโปร่งใส
@@ -53,6 +54,7 @@ class _history1State extends State<history1> {
               ),
             ],
           ),
+        
         body: Stack(
           children: [
             // สี่เหลี่ยมสีเหลือง
@@ -145,27 +147,27 @@ class _history1State extends State<history1> {
                 ),
               ),
 
-            // toolbar ข้างล่าง
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                height: 66,
-                width: MediaQuery.of(context).size.width, // กำหนดความกว้างเต็มหน้าจอ
-                color: Color(0xFFFFF5C0), // เปลี่ยนสีเป็น FFF5C0
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    _buildToolbarButton('image/book.png', 'Home'), // ปุ่ม Home
-                    _buildToolbarButton('image/wallet.png', 'Wallet'), // ปุ่ม Wallet
-                    _buildToolbarButton('image/analytics.png', 'Analytics'), // ปุ่ม Analytics
-                    _buildToolbarButton('image/logout.png', 'Logout'), // ปุ่ม Logout
-                  ],
-                ),
-              ),
-            ),
+            // // toolbar ข้างล่าง
+            // Align(
+            //   alignment: Alignment.bottomCenter,
+            //   child: Container(
+            //     height: 66,
+            //     width: MediaQuery.of(context).size.width, // กำหนดความกว้างเต็มหน้าจอ
+            //     color: Color(0xFFFFF5C0), // เปลี่ยนสีเป็น FFF5C0
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //       children: [
+            //         _buildToolbarButton('image/book.png', 'Home'), // ปุ่ม Home
+            //         _buildToolbarButton('image/wallet.png', 'Wallet'), // ปุ่ม Wallet
+            //         _buildToolbarButton('image/analytics.png', 'Analytics'), // ปุ่ม Analytics
+            //         _buildToolbarButton('image/logout.png', 'Logout'), // ปุ่ม Logout
+            //       ],
+            //     ),
+            //   ),
+            // ),
           ],
         ),
-      ),
+      ), 
     );
   }
 

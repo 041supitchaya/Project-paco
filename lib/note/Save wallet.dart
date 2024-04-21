@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:paco_money/page/Wallet.dart';
 import 'package:paco_money/page/tool_bar.dart';
 
-void main() {
-  runApp(MyApp());
-}
+// void main() {
+//   runApp(MyApp());
+// }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: DatePickerPage(), // เรียกใช้ DatePickerPage เมื่อแอปพลิเคชันเริ่มต้น
-    );
-  }
-}
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: DatePickerPage(), // เรียกใช้ DatePickerPage เมื่อแอปพลิเคชันเริ่มต้น
+//     );
+//   }
+// }
 
 
 class save_wallet extends StatelessWidget {
@@ -56,6 +56,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
   @override
     Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar:ToolBar() , // เรียกใช้ function หน้า ToolBar
       appBar: AppBar(
         backgroundColor: Color(0xFFF5A359),
         elevation: 0,
@@ -233,20 +234,20 @@ class _DatePickerPageState extends State<DatePickerPage> {
             ),
           ),
 
-          // toolbar
-          Container(
-            height: 66,
-            width: 450,
-            color: Color(0xFFFFF5C0), // เปลี่ยนสีเป็น FFF5C0
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                _buildToolbarButton('image/book.png', 'Home'), // ปุ่ม Home
-                _buildToolbarButton('image/wallet.png', 'Wallet'), // ปุ่ม Wallet
-                _buildToolbarButton('image/analytics.png', 'Analytics'), // ปุ่ม Analytics
-                _buildToolbarButton('image/logout.png', 'Logout'), // ปุ่ม Logout
-              ],
-            ),
-          ),
+          // // toolbar
+          // Container(
+          //   height: 66,
+          //   width: 450,
+          //   color: Color(0xFFFFF5C0), // เปลี่ยนสีเป็น FFF5C0
+          //   child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //     children: [
+          //       _buildToolbarButton('image/book.png', 'Home'), // ปุ่ม Home
+          //       _buildToolbarButton('image/wallet.png', 'Wallet'), // ปุ่ม Wallet
+          //       _buildToolbarButton('image/analytics.png', 'Analytics'), // ปุ่ม Analytics
+          //       _buildToolbarButton('image/logout.png', 'Logout'), // ปุ่ม Logout
+          //     ],
+          //   ),
+          // ),
         ],
       ),
     );

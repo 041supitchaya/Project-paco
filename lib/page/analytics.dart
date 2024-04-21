@@ -30,6 +30,7 @@ class analytics extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        bottomNavigationBar:ToolBar() , // เรียกใช้ function หน้า ToolBar
         backgroundColor: Color(0xFFF5A359),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -66,7 +67,7 @@ class analytics extends StatelessWidget {
                     Text(
                       expenseText,
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
@@ -75,7 +76,7 @@ class analytics extends StatelessWidget {
                     Text(
                       expenseDetailText,
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 18,
                       ),
                     ),
@@ -84,7 +85,7 @@ class analytics extends StatelessWidget {
                     Text(
                       incomeText,
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
@@ -93,7 +94,7 @@ class analytics extends StatelessWidget {
                     Text(
                       incomeDetailText,
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 18,
                       ),
                     ),
@@ -102,24 +103,24 @@ class analytics extends StatelessWidget {
               ),
             ),
 
-            // toolbar ข้างล่าง
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                height: 66,
-                width: MediaQuery.of(context).size.width, // กำหนดความกว้างเต็มหน้าจอ
-                color: Color(0xFFFFF5C0), // เปลี่ยนสีเป็น FFF5C0
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    _buildToolbarButton('image/book.png', 'Home'), // ปุ่ม Home
-                    _buildToolbarButton('image/wallet.png', 'Wallet'), // ปุ่ม Wallet
-                    _buildToolbarButton('image/analytics.png', 'Analytics'), // ปุ่ม Analytics
-                    _buildToolbarButton('image/logout.png', 'Logout'), // ปุ่ม Logout
-                  ],
-                ),
-              ),
-            ),
+            // // toolbar ข้างล่าง
+            // Align(
+            //   alignment: Alignment.bottomCenter,
+            //   child: Container(
+            //     height: 66,
+            //     width: MediaQuery.of(context).size.width, // กำหนดความกว้างเต็มหน้าจอ
+            //     color: Color(0xFFFFF5C0), // เปลี่ยนสีเป็น FFF5C0
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //       children: [
+            //         _buildToolbarButton('image/book.png', 'Home'), // ปุ่ม Home
+            //         _buildToolbarButton('image/wallet.png', 'Wallet'), // ปุ่ม Wallet
+            //         _buildToolbarButton('image/analytics.png', 'Analytics'), // ปุ่ม Analytics
+            //         _buildToolbarButton('image/logout.png', 'Logout'), // ปุ่ม Logout
+            //       ],
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
