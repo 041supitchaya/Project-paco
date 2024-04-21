@@ -6,9 +6,9 @@ class analytics extends StatelessWidget {
   Widget build(BuildContext context) {
     // สร้างตัวแปรสำหรับข้อความที่จะแสดง
     String expenseText = "รายจ่าย";
-    String expenseDetailText = "เติมน้ำมัน 1500 บาท";
+    String expenseDetailText = "- 1500 บาท";
     String incomeText = "รายรับ";
-    String incomeDetailText = "เงินเดือน 19000 บาท";
+    String incomeDetailText = "+ 19000 บาท";
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -47,38 +47,60 @@ class analytics extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // ข้อความ "รายจ่าย"
-                    Text(
-                      expenseText,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'image/money_wallet.png', // รูปภาพ money_wallet
+                          width: 50,
+                          height: 50,
+                        ),
+                        SizedBox(width: 5), // ระยะห่างระหว่างรูปภาพกับข้อความ
+                        Text(
+                          expenseText,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
                     // ข้อความ "เติมน้ำมัน 1500 บาท"
                     Text(
                       expenseDetailText,
                       style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
+                        color: Colors.red,
+                        fontSize: 30,
                       ),
                     ),
                     SizedBox(height: 20), // ระยะห่างระหว่างข้อความ
                     // ข้อความ "รายรับ"
-                    Text(
-                      incomeText,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'image/piggy-bank.png', // รูปภาพ piggy-bank
+                          width: 50,
+                          height: 50,
+                        ),
+                        SizedBox(width: 5), // ระยะห่างระหว่างรูปภาพกับข้อความ
+                        Text(
+                          incomeText,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
                     // ข้อความ "เงินเดือน 19000 บาท"
                     Text(
                       incomeDetailText,
                       style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
+                        color: Colors.green,
+                        fontSize: 30,
                       ),
                     ),
                   ],
