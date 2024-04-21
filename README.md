@@ -1,4 +1,14 @@
-# paco_money
+วิธี setup ให้รัน code ใน file main.dart ที่อยู่ใน folder ชื่อ lib
+
+
+
+
+
+
+
+
+
+<!-- # paco_money
 
 A new Flutter project.
 
@@ -13,4 +23,4 @@ A few resources to get you started if this is your first Flutter project:
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+samples, guidance on mobile development, and a full API reference. -->
