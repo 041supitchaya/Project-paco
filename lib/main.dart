@@ -22,8 +22,6 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: Loading(title: 'Loading...')
-      // home: ToolBar()
-      // home: HomeScreen() // class HomeScreen เป็นหน้าเเรกในการ run
     );
   }
 }
