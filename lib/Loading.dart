@@ -1,32 +1,35 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:paco_money/screen/home.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Paco Money',
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
-      home: MyHomePage(key: GlobalKey(), title: 'Paco Money'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({required Key key, required this.title}) : super(key: key);
+class Loading extends StatefulWidget {
+  Loading({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _LoadingState createState() => _LoadingState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _LoadingState extends State<Loading> {
+  @override
+  void initState() {
+    super.initState();
+    _loadData(); // เรียกเมธอด _loadData() เมื่อหน้า Loading ถูกสร้างขึ้น
+  }
+
+  // เมธอดเพื่อโหลดข้อมูล
+  void _loadData() {
+    // ใช้ Future.delayed() เพื่อทำให้มีการรอเป็นเวลา 3 วินาที
+    Future.delayed(Duration(seconds: 3), () {
+      // เมื่อโหลดเสร็จสมบูรณ์ ให้เปลี่ยนหน้าไปยัง HomeScreen
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

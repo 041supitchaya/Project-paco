@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import 'package:paco_money/page/home_page.dart';
-import 'package:paco_money/note/income.dart';
-
 // import 'package:firebase_core/firebase_core.dart';
+import 'package:paco_money/page/home_page.dart';
+import 'package:paco_money/page/Wallet.dart';
 
-class expenses extends StatelessWidget {
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: DatePickerPage(), // เรียกใช้ DatePickerPage เมื่อแอปพลิเคชันเริ่มต้น
+    );
+  }
+}
+
+
+class save_wallet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,43 +56,18 @@ class _DatePickerPageState extends State<DatePickerPage> {
         selectedDate = picked;
       });
   }
-
-  // รูปภาพของกล้อง
-  Future<void> _pickImage(ImageSource source) async {
-    final picker = ImagePicker();
-    final pickedFile = await picker.getImage(source: source);
-
-    if (pickedFile != null) {
-      setState(() {
-        _profileImage = File(pickedFile.path); //ใช้รูปภาพที่ถูกเลือก
-      });
-    } else {
-      // ข้อผิดพลาดหรือยกเลิกการเลือกภาพ
-    }
-  }
-
   @override
-  // เชื่อมหน้า ไปยังหน้า income
-  Widget build(BuildContext context) {
+    Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFFCDA78),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            _buildButton('ค่าใช้จ่าย', () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => expenses()),
-              );
-            }),
-            _buildButton('รายได้/โอนเงิน', () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => income()),
-              );
-            }),
-          ],
+        backgroundColor: Color(0xFFF5A359),
+        elevation: 0,
+        title: Text(
+          'เพิ่มกระเป๋าเงิน',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 28,
+          ),
         ),
       ),
       body: Column(
@@ -97,7 +86,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
                             crossAxisCount: 4,
                             childAspectRatio: 1,
                           ),
-                          itemCount: 12, //กำหนดจำนวนกล่อง icon
+                          itemCount: 4, //กำหนดจำนวนกล่อง icon
                           itemBuilder: (BuildContext context, int index) {
                             return _buildSquareWithImageAndText(index);
                           },
@@ -106,7 +95,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
                     ],
                   ),
                 ),
-                // บันทึกข้อความ
+                // สี่เหลี่ยมสำหรับช่องบันทึกข้อความ
                 Positioned(
                   bottom: 0,
                   left: 1,
@@ -122,58 +111,11 @@ class _DatePickerPageState extends State<DatePickerPage> {
                     ),
                     child: Stack(
                       children: [
-                        // วงกลมใส่รูป
-                        Positioned(
-                          top: 8,
-                          left: MediaQuery.of(context).size.width / 2 - 60,
-                          child: GestureDetector(
-                            onTap: () {
-                              _pickImage(ImageSource.camera); // Open camera to take a photo
-                            },
-                            child: Container(
-                              width: 110,
-                              height: 110,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFD9D9D9),
-                                shape: BoxShape.circle,
-                              ),
-                              child: _profileImage != null
-                                  ? CircleAvatar(
-                                      radius: 50,
-                                      backgroundImage: FileImage(_profileImage),
-                                    )
-                                  : Center(
-                                      child: Icon(
-                                        Icons.camera_alt,
-                                        size: 48,
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                            ),
-                          ),
-                        ),
-
-                        // รูปกล้อง
-                        Positioned(
-                          top: 88,
-                          right: MediaQuery.of(context).size.width / 2 - 44,
-                          child: GestureDetector(
-                            onTap: () {
-                              _pickImage(ImageSource.gallery); // Open gallery to select an image
-                            },
-                            child: Image.asset(
-                              'image/camera.png',
-                              width: 28,
-                              height: 28,
-                            ),
-                          ),
-                        ),
-
                         // เพิ่มปุ่มเลือกวันที่
                         // text "เลือกวันที่"
                         Positioned(
                           top: 62,
-                          right: 60,
+                          right: 170,
                           child: Container(
                             width: 100, // Adjust the width as needed
                             child: Text(
@@ -181,7 +123,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
                               textAlign: TextAlign.end, // Align the text to the right
                               style: TextStyle(
                                 color: Colors.black,
-                                fontSize: 14,
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -190,8 +132,8 @@ class _DatePickerPageState extends State<DatePickerPage> {
 
                         // ปุ่มเลือกวันที่
                         Positioned(
-                          top: 84,
-                          right: 32,
+                          top: 100,
+                          right: 150,
                           child: ElevatedButton(
                             onPressed: () => _selectDate(context),
                             style: ElevatedButton.styleFrom(
@@ -199,8 +141,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
                                 borderRadius: BorderRadius.circular(20), // ทำให้มีมุมโค้ง
                               ),
                             ).copyWith(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Color(0xFFF18585)), // สีพื้นหลังของปุ่ม
+                              backgroundColor: MaterialStateProperty.all(Color(0xFFF18585)), // สีพื้นหลังของปุ่ม
                             ),
                             child: Text(
                               '${selectedDate.day}/${selectedDate.month}/${selectedDate.year}',
@@ -213,47 +154,9 @@ class _DatePickerPageState extends State<DatePickerPage> {
                           ),
                         ),
 
-                        // เพิ่มคำว่า "note"
-                        Positioned(
-                          top: MediaQuery.of(context).size.height / 7.4,
-                          left: 44,
-                          child: Text(
-                            'note',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-
-                        // กล่องใส่ข้อความ
-                        Positioned(
-                          top: MediaQuery.of(context).size.height / 6.2,
-                          left: MediaQuery.of(context).size.width / 10,
-                          child: Container(
-                            width: 329,
-                            height: 112,
-                            color: Color(0xFFD9D9D9),
-                            padding: EdgeInsets.symmetric(horizontal: 20), // เพิ่มช่องว่างภายในสำหรับการป้อนข้อความ
-                            child: TextFormField(
-                              // ใช้ TextFormField สำหรับการป้อนข้อความ
-                              maxLines: null, // อนุญาตให้ป้อนข้อมูลได้หลายบรรทัด
-                              decoration: InputDecoration(
-                                border: InputBorder.none, // ลบเส้นขอบ
-                                hintText: 'Enter your text here', // Placeholder text
-                              ),
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                        ),
-
                         // เพิ่มคำว่า "จำนวนเงิน :"
                         Positioned(
-                          top: MediaQuery.of(context).size.height / 3,
+                          top: MediaQuery.of(context).size.height / 4,
                           left: 38,
                           child: Text(
                             'จำนวนเงิน :',
@@ -267,22 +170,19 @@ class _DatePickerPageState extends State<DatePickerPage> {
 
                         // เพิ่มช่องใส่เลข (จำนวนเงิน)
                         Positioned(
-                          top: MediaQuery.of(context).size.height / 3.1,
-                          left: MediaQuery.of(context).size.width / 2 -
-                              76, // Center the container horizontally
+                          top: MediaQuery.of(context).size.height / 4.1,
+                          left: MediaQuery.of(context).size.width / 2 -76, // Center the container horizontally
                           child: Container(
                             width: 150,
                             height: 44,
                             decoration: BoxDecoration(
                               color: Color(0xFFD9D9D9), // สีเส้นแบ่ง
-                              borderRadius: BorderRadius.circular(
-                                  50), // รัศมีโค้ง 50
+                              borderRadius: BorderRadius.circular(50), // รัศมีโค้ง 50
                             ),
                             child: Center(
                               child: TextFormField(
                                 textAlign: TextAlign.center, // Center align text input
-                                keyboardType:
-                                    TextInputType.number, // Set keyboard type to number
+                                keyboardType: TextInputType.number, // Set keyboard type to number
                                 decoration: InputDecoration(
                                   border: InputBorder.none, // Remove border
                                   hintText: '0', // Placeholder text
@@ -298,7 +198,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
 
                         // เพิ่มช่องบันทึก
                         Positioned(
-                          top: MediaQuery.of(context).size.height / 3,
+                          top: MediaQuery.of(context).size.height / 4,
                           right: 40,
                           child: Container(
                             width: 80,
@@ -307,11 +207,13 @@ class _DatePickerPageState extends State<DatePickerPage> {
                               color: Color(0xFFF18585), // สีเส้นแบ่ง
                               borderRadius: BorderRadius.circular(50), // รัศมีโค้ง 50
                             ),
+
+                          // เชื่อมหน้า ไปยังหน้า WalletPage  
                             child: TextButton( // เปลี่ยนจาก ElevatedButton เป็น TextButton
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => homepage()), // ใช้ MaterialPageRoute เพื่อนำทางไปยัง homepage
+                                  MaterialPageRoute(builder: (context) => WalletPage()), 
                                 );
                               },
                               child: Center(
@@ -339,8 +241,7 @@ class _DatePickerPageState extends State<DatePickerPage> {
             height: 66,
             width: 450,
             color: Color(0xFFFFF5C0), // เปลี่ยนสีเป็น FFF5C0
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 _buildToolbarButton('image/book.png', 'Home'), // ปุ่ม Home
                 _buildToolbarButton('image/wallet.png', 'Wallet'), // ปุ่ม Wallet
@@ -382,33 +283,17 @@ class _DatePickerPageState extends State<DatePickerPage> {
   // Building template for square with image and text
   Widget _buildSquareWithImageAndText(int index) {
     List<String> imagePaths = [
-      'image/oil.png',
-      'image/food.png',
-      'image/shopping.png',
-      'image/home.png',
-      'image/fashion.png',
-      'image/giftbox.png',
-      'image/cheers.png',
-      'image/actress.png',
-      'image/guarantee.png',
-      'image/luggage.png',
-      'image/dog.png',
-      'image/mortarboard.png',
+      'image/money_wallet.png',
+      'image/piggy.png',
+      'image/credit.png',
+      'image/debit.png',
     ];
 
     List<String> texts = [
-      'น้ำมัน',
-      'อาหาร',
-      'ช็อปปิ้ง',
-      'ที่อยู่อาศัย',
-      'เสื้อผ้า',
-      'ของขวัญ',
-      'สังสรรค์',
-      'เสริมสวย',
-      'ประกัน',
-      'ท่องเที่ยว',
-      'สัตว์เลี้ยง',
-      'การศึกษา',
+      'เงินเดือน',
+      'โบนัส',
+      'ลงทุน',
+      'คืนเงิน',
     ];
 
     // เก็บข้อมูลใน icon
@@ -472,33 +357,5 @@ class _DatePickerPageState extends State<DatePickerPage> {
     );
   }
 
-  // ปุ่ม app bar
-  // Building template for buttons in the app bar
-  Widget _buildButton(String text, void Function() onTap) {
-    return Container(
-      width: 150,
-      height: 32,
-      child: ElevatedButton(
-        onPressed: onTap,
-        style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20), // ทำให้มีมุมโค้ง
-          ),
-        ).copyWith(
-          backgroundColor: MaterialStateProperty.all(Color(0xFFF18585)), // สีพื้นหลังของปุ่ม
-        ),
-        child: Text(
-          text,
-          style: TextStyle(
-            color: Color.fromARGB(255, 237, 237, 237),
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
-  }
+  
 }
-
-
-

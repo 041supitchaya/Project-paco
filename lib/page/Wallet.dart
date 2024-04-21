@@ -3,20 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:paco_money/page/home_page.dart';
 import 'package:paco_money/page/analytics.dart';
 import 'package:paco_money/screen/login.dart';
+import 'package:paco_money/note/expenses.dart';
+import 'package:paco_money/note/Save wallet.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: WalletPage(),
-    );
-  }
-}
 
 class WalletPage extends StatelessWidget {
   @override
@@ -95,16 +84,19 @@ class WalletPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Add functionality to add a new transaction
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => save_wallet()), // ใช้ MaterialPageRoute เพื่อนำทางไปยังหน้า SaveWalletPage
+          );
         },
         child: Image.asset(
-            'image/pen.png', // เปลี่ยนเป็นพาทของรูป pen ของคุณ
-            width: 36,
-            height: 36,
-          ),
-        // child: Icon(Icons.add),
+          'image/pen.png', // เปลี่ยนเป็นพาทของรูป pen ของคุณ
+          width: 36,
+          height: 36,
+        ),
         backgroundColor: Color(0xFFFCDA78),
       ),
+
       bottomNavigationBar: BottomAppBar(
         color: Color(0xFFFFF5C0),
         child: Row(
