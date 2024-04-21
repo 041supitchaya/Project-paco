@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 // import path หน้าที่ต้องการเชื่อม ของ tool bar
-import 'package:paco_money/page/wallet.dart';
-import 'package:paco_money/page/analytics.dart';
-import 'package:paco_money/screen/login.dart';
+// import 'package:paco_money/page/wallet.dart';
+// import 'package:paco_money/page/analytics.dart';
+// import 'package:paco_money/screen/login.dart';
 import 'package:paco_money/history/history1.dart';
 import 'package:paco_money/history/history2.dart';
 import 'package:paco_money/note/expenses.dart';

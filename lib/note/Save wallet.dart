@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
 // import 'package:firebase_core/firebase_core.dart';
-import 'package:paco_money/page/home_page.dart';
 import 'package:paco_money/page/Wallet.dart';
 
 void main() {
@@ -36,12 +33,11 @@ class DatePickerPage extends StatefulWidget {
 
 class _DatePickerPageState extends State<DatePickerPage> {
   DateTime selectedDate = DateTime.now();
-  late File _profileImage; // Declare _profileImage variable
 
   @override
   void initState() {
     super.initState();
-    _profileImage = File(''); // Initialize _profileImage with an empty file
+// Initialize _profileImage with an empty file
   }
 
   Future<void> _selectDate(BuildContext context) async {

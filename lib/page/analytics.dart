@@ -1,25 +1,31 @@
 import 'package:flutter/material.dart';
 // import path หน้าที่ต้องการเชื่อม ของ tool bar
-import 'package:paco_money/page/home_page.dart';
-import 'package:paco_money/page/wallet.dart';
-import 'package:paco_money/screen/login.dart';
+// import 'package:paco_money/page/home_page.dart';
+// import 'package:paco_money/page/wallet.dart';
+// import 'package:paco_money/screen/login.dart';
 
-void main() {
-  runApp(MyApp());
-}
+// void main() {
+//   runApp(MyApp());
+// }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//     );
+//   }
+// }
 
 class analytics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // สร้างตัวแปรสำหรับข้อความที่จะแสดง
+    String expenseText = "รายจ่าย";
+    String expenseDetailText = "เติมน้ำมัน 1500 บาท";
+    String incomeText = "รายรับ";
+    String incomeDetailText = "เงินเดือน 19000 บาท";
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -51,6 +57,46 @@ class analytics extends StatelessWidget {
                     topLeft: Radius.circular(30), // มุมบนซ้าย
                     topRight: Radius.circular(30), // มุมบนขวา
                   ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // ข้อความ "รายจ่าย"
+                    Text(
+                      expenseText,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    // ข้อความ "เติมน้ำมัน 1500 บาท"
+                    Text(
+                      expenseDetailText,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
+                    ),
+                    SizedBox(height: 20), // ระยะห่างระหว่างข้อความ
+                    // ข้อความ "รายรับ"
+                    Text(
+                      incomeText,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    // ข้อความ "เงินเดือน 19000 บาท"
+                    Text(
+                      incomeDetailText,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
