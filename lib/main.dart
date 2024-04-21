@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:paco_money/screen/home.dart';
-// import 'package:firebase_core/firebase_core.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:paco_money/page/tool_bar.dart';
-// import 'package:paco_money/page/home_page.dart';
-// import 'package:paco_money/history/history1.dart';
 import 'package:paco_money/Loading.dart';
-// void main() {
-//   runApp(const MyApp());
-// }
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp();
