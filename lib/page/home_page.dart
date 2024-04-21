@@ -161,8 +161,8 @@ class homepage extends StatelessWidget {
               bottom: 84,
               right: 10,
               child: Container(
-                height: 64, // ความสูงของสี่เหลี่ยม
-                width: 64, // ความกว้างของสี่เหลี่ยม
+                height: 52, // ความสูงของสี่เหลี่ยม
+                width: 52, // ความกว้างของสี่เหลี่ยม
                 child: Stack(
                   children: [
                     // เพิ่มช่อง pen 
@@ -194,8 +194,7 @@ class homepage extends StatelessWidget {
                             left: 17, // ระยะตำแหน่งจากด้านซ้าย
                             child: Image.asset(
                               'image/pen.png', // เปลี่ยนเป็นพาทของรูป pen ของคุณ
-                              width: 30,
-                              height: 30,
+                              
                             ),
                           ),
                         ),

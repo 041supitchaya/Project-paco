@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 // import 'package:firebase_core/firebase_core.dart';
-
+import 'package:paco_money/page/home_page.dart';
+import 'package:paco_money/note/expenses.dart';
 
 class income extends StatelessWidget {
   @override
@@ -51,20 +52,31 @@ class _DatePickerPageState extends State<DatePickerPage> {
         _profileImage = File(pickedFile.path); //ใช้รูปภาพที่ถูกเลือก
       });
     } else {
-      // ปรับปรุงตรงนี้เพื่อจัดการข้อผิดพลาดหรือกรณีที่ผู้ใช้ยกเลิกการเลือกภาพ
+      // ข้อผิดพลาดหรือยกเลิกการเลือกภาพ
     }
   }
 
   @override
-  Widget build(BuildContext context) {
+  // เชื่อมหน้า ไปยังหน้า expenses
+    Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFFCDA78), //  background color of the AppBar
+        backgroundColor: Color(0xFFFCDA78),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _buildButton('ค่าใช้จ่าย', 120, 35),
-            _buildButton('รายได้/โอนเงิน ', 120, 35),
+            _buildButton('ค่าใช้จ่าย', () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => expenses()),
+              );
+            }),
+            _buildButton('รายได้/โอนเงิน', () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => income()),
+              );
+            }),
           ],
         ),
       ),
@@ -287,17 +299,25 @@ class _DatePickerPageState extends State<DatePickerPage> {
                           right: 40,
                           child: Container(
                             width: 80,
-                            height: 29,
+                            height: 39,
                             decoration: BoxDecoration(
                               color: Color(0xFFF18585), // สีเส้นแบ่ง
                               borderRadius: BorderRadius.circular(50), // รัศมีโค้ง 50
                             ),
-                            child: Center(
-                              child: Text(
-                                'บันทึก',
-                                style: TextStyle(
-                                  color: Colors.white, // สีของตัวอักษร
-                                  fontWeight: FontWeight.bold, // ทำให้ตัวอักษรหนา
+                            child: TextButton( // เปลี่ยนจาก ElevatedButton เป็น TextButton
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => homepage()), // ใช้ MaterialPageRoute เพื่อนำทางไปยัง homepage
+                                );
+                              },
+                              child: Center(
+                                child: Text(
+                                  'บันทึก',
+                                  style: TextStyle(
+                                    color: Colors.white, // สีของตัวอักษร
+                                    fontWeight: FontWeight.bold, // ทำให้ตัวอักษรหนา
+                                  ),
                                 ),
                               ),
                             ),
@@ -438,12 +458,14 @@ class _DatePickerPageState extends State<DatePickerPage> {
 
   // ปุ่ม app bar
   // Building template for buttons in the app bar
-  Widget _buildButton(String text, double width, double height) {
+  // ปุ่ม app bar
+  // Building template for buttons in the app bar
+  Widget _buildButton(String text, void Function() onTap) {
     return Container(
-      width: 150 ,
+      width: 150,
       height: 32,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onTap,
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20), // ทำให้มีมุมโค้ง

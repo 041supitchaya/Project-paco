@@ -4,11 +4,11 @@ import 'package:paco_money/page/home_page.dart';
 import 'package:paco_money/page/wallet.dart';
 import 'package:paco_money/screen/login.dart';
 
-// void main() {
-//   runApp(MyApp());
-// }
-
-class analytics extends StatelessWidget {
+void main() {
+  runApp( MyApp());
+}
+class MyApp extends StatelessWidget {
+// class analytics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
