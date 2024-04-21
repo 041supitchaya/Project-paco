@@ -97,19 +97,6 @@ class WalletPage extends StatelessWidget {
         ),
         backgroundColor: Color(0xFFFCDA78),
       ),
-
-      // bottomNavigationBar: BottomAppBar(
-      //   color: Color(0xFFFFF5C0),
-      //   child: Row(
-      //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      //     children: [
-      //       _buildToolbarButton('image/book.png', 'Home'),
-      //       _buildToolbarButton('image/wallet.png', 'Wallet'),
-      //       _buildToolbarButton('image/analytics.png', 'Analytics'),
-      //       _buildToolbarButton('image/logout.png', 'Logout'),
-      //     ],
-      //   ),
-      // ),
     );
   }
 

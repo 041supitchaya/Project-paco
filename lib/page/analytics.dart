@@ -1,22 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:paco_money/page/tool_bar.dart';
-// import path หน้าที่ต้องการเชื่อม ของ tool bar
-// import 'package:paco_money/page/home_page.dart';
-// import 'package:paco_money/page/wallet.dart';
-// import 'package:paco_money/screen/login.dart';
-
-// void main() {
-//   runApp(MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//     );
-//   }
-// }
 
 class analytics extends StatelessWidget {
   @override
@@ -102,25 +85,6 @@ class analytics extends StatelessWidget {
                 ),
               ),
             ),
-
-            // // toolbar ข้างล่าง
-            // Align(
-            //   alignment: Alignment.bottomCenter,
-            //   child: Container(
-            //     height: 66,
-            //     width: MediaQuery.of(context).size.width, // กำหนดความกว้างเต็มหน้าจอ
-            //     color: Color(0xFFFFF5C0), // เปลี่ยนสีเป็น FFF5C0
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //       children: [
-            //         _buildToolbarButton('image/book.png', 'Home'), // ปุ่ม Home
-            //         _buildToolbarButton('image/wallet.png', 'Wallet'), // ปุ่ม Wallet
-            //         _buildToolbarButton('image/analytics.png', 'Analytics'), // ปุ่ม Analytics
-            //         _buildToolbarButton('image/logout.png', 'Logout'), // ปุ่ม Logout
-            //       ],
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),

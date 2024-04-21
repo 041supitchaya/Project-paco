@@ -77,7 +77,7 @@ class _history1State extends State<history1> {
 
             // เก็บข้อมูล icon
             Positioned(
-              bottom: 130,
+              bottom: 80,
               left: 55, // Adjust based on your design
               child: Container(
                 height: 80, 
@@ -146,25 +146,6 @@ class _history1State extends State<history1> {
                   ),
                 ),
               ),
-
-            // // toolbar ข้างล่าง
-            // Align(
-            //   alignment: Alignment.bottomCenter,
-            //   child: Container(
-            //     height: 66,
-            //     width: MediaQuery.of(context).size.width, // กำหนดความกว้างเต็มหน้าจอ
-            //     color: Color(0xFFFFF5C0), // เปลี่ยนสีเป็น FFF5C0
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //       children: [
-            //         _buildToolbarButton('image/book.png', 'Home'), // ปุ่ม Home
-            //         _buildToolbarButton('image/wallet.png', 'Wallet'), // ปุ่ม Wallet
-            //         _buildToolbarButton('image/analytics.png', 'Analytics'), // ปุ่ม Analytics
-            //         _buildToolbarButton('image/logout.png', 'Logout'), // ปุ่ม Logout
-            //       ],
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ), 

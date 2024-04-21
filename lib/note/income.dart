@@ -332,21 +332,6 @@ class _DatePickerPageState extends State<DatePickerPage> {
               ],
             ),
           ),
-
-          // // toolbar
-          // Container(
-          //   height: 66,
-          //   width: 450,
-          //   color: Color(0xFFFFF5C0), // เปลี่ยนสีเป็น FFF5C0
-          //   child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //     children: [
-          //       _buildToolbarButton('image/book.png', 'Home'), // ปุ่ม Home
-          //       _buildToolbarButton('image/wallet.png', 'Wallet'), // ปุ่ม Wallet
-          //       _buildToolbarButton('image/analytics.png', 'Analytics'), // ปุ่ม Analytics
-          //       _buildToolbarButton('image/logout.png', 'Logout'), // ปุ่ม Logout
-          //     ],
-          //   ),
-          // ),
         ],
       ),
     );

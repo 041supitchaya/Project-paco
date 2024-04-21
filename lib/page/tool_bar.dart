@@ -4,7 +4,7 @@ import 'package:paco_money/page/home_page.dart';
 import 'package:paco_money/page/wallet.dart';
 import 'package:paco_money/page/analytics.dart';
 import 'package:paco_money/screen/home.dart';
-import 'package:paco_money/page/tool_bar.dart';
+
 
 class ToolBar extends StatefulWidget {
   ToolBar({Key? key}) : super(key: key);
@@ -20,19 +20,6 @@ class _HomeState extends State<ToolBar> {
   @override
   Widget build(BuildContext context) {
     return 
-    // Scaffold(
-      // // body: PageView(
-      // //   controller: _pageController,
-      // //   children: [
-      // //     homepage(),
-      // //     WalletPage(),
-      // //     analytics(),
-      // //     HomeScreen(),
-      // //   ],
-      // // ),
-      // bottomNavigationBar: Align(
-      //   alignment: Alignment.bottomCenter,
-        // child:
         Container(
           height: 66,
           width: MediaQuery.of(context).size.width,
@@ -55,8 +42,6 @@ class _HomeState extends State<ToolBar> {
             ],
           ),
         );
-      // ),
-    // );
   }
 
   Widget _buildToolbarButton(

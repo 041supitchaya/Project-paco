@@ -15,8 +15,8 @@ class _LoadingState extends State<Loading> {
   @override
   void initState() {
     super.initState();
-    // เริ่มการนับถอยหลัง 2 วินาที
-    Timer(Duration(seconds: 2), () {
+    // เริ่มการนับถอยหลัง 1 วินาที
+    Timer(Duration(seconds: 1), () {
       // เมื่อเวลาหมดแล้ว ให้เปลี่ยนหน้าไปยัง HomeScreen
       Navigator.pushReplacement(
         context,
